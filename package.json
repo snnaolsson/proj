@@ -1,0 +1,29 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "Projektuppgift för kursen DT211G: Frontend-baserad webbutveckling.",
+  "source": "src/index.html",
+  "browserslist": [
+    "last 2 version",
+    "> 0.5%",
+    "not dead"
+  ],
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snnaolsson/proj.git"
+  },
+  "author": "sanna olsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snnaolsson/proj/issues"
+  },
+  "homepage": "https://github.com/snnaolsson/proj#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0"
+  }
+}
