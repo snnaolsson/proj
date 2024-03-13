@@ -1,0 +1,21 @@
+//colors for light theme
+$primary-bg: #e3e3e3;
+$second-accent-color: #4d967c;
+$primary-accent-color: #59cca2;
+$font-color: #000;
+
+//dark theme
+$primary-bg-darkm: darken($primary-bg, 25%);
+$second-accent-color-darkm: #235c47;
+$primary-accent-color-darkm: #59cca2;
+$font-color-darkm: #fff;
+
+//fonts & text
+$primary-font: "open sans", verdana;
+$standard-line-height: 2.5rem;
+
+//margin & padding
+$title-margin: 2rem;
+$section-margin-bottom: 3%;
+$heading-padding: 3%;
+$foot-head-padd: 2%;
