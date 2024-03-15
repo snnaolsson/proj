@@ -2,6 +2,8 @@ let searchBtn = document.getElementById("search-btn");
 let input = document.getElementById("search-movie");
 const apikey = "700ef8db2ca4abdb7094218bdf8562f3";
 const searchResult = document.getElementById("results");
+const streamResult = document.getElementById("stream");
+streamResult.innerHTML = "";
 searchBtn.addEventListener("click", searchTMDB);
 
 //För att via input söka efter film - dessa bör visas som alternativ för användaren
@@ -89,6 +91,7 @@ async function actorsOmdb(id) {
     console.log("Något gick fel!");
   }
 }
+
 //Använder id för att visa vilka som erbjuder filmen för köp/hyr/stream.
 async function providersTMBD(id) {
   const response = await fetch(
@@ -97,25 +100,29 @@ async function providersTMBD(id) {
   const provider = await response.json();
   console.log(provider.results.SE.flatrate); //har här valt att bara visa svenska streamingtjänster som har filmen
   console.log(provider);
-  const providerDiv = document.createElement("div");
-  const providerEl = document.createElement("h4");
-  providerEl.innerHTML = "Streama här";
-  providerDiv.appendChild(providerEl);
   const seProviders = provider.results.SE.flatrate;
   if (seProviders) {
     seProviders.forEach((provider) => {
-      const providerImgEl = document.createElement("img");
+      streamResult.innerHTML = ""; //Raderar gamla resultat
+      const providerDiv = document.createElement("div");
+      const providerEl = document.createElement("h4");
+      providerDiv.appendChild(providerEl);
 
+      const providerImgEl = document.createElement("img");
+      providerEl.innerHTML = "Streama här";
+      providerEl.style.color = "black";
       providerImgEl.src = `https://image.tmdb.org/t/p/original${provider.logo_path}`;
       providerImgEl.title = `${provider.provider_name}`;
 
       providerDiv.appendChild(providerImgEl);
-      searchResult.appendChild(providerDiv);
+      streamResult.appendChild(providerDiv);
     });
-  } else if (!seProviders) {
+  } else {
+    streamResult.innerHTML = ""; //Raderar gamla resultat
+    const providerEl = document.createElement("h4");
+    streamResult.appendChild(providerEl);
     providerEl.innerHTML =
       "Filmen finns för tillfället inte på någon svensk streamingtjänst.";
-    searchResult.appendChild(providerDiv);
     providerEl.style.color = "red";
   }
 }
