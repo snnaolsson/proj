@@ -9,20 +9,22 @@
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Sök film</a></li>
-          <li><a href="about.html">Om FilmFindr</a></li>
-        </ul>
-      </nav>
-      <a href="index.html"
-        ><img id="logo" src="img/logo.svg" alt="FilmFindr"
-      /></a>
+      <img id="logo" src="img/logo.svg" alt="FilmFindr" />
+      <div id="scroll-down">Sök</div>
     </header>
+
     <main>
-      <section>
+      <section id="search-sec">
+        <p>
+          FilmFindr är din ultimata plattform för att upptäcka nya filmer. Med
+          enkel titelsökning får du information om filmens längd, genre,
+          huvudskådespelare och vilka streamingtjänster som erbjuder den. Vår
+          tjänst är gratis och tillgänglig på alla enheter. Ge dig själv den
+          perfekta filmkvällen med FilmFindr - din guide till den spännande
+          världen av film.
+        </p>
         <h2>Sök film</h2>
-        <input id="search-movie" />
+        <input id="search-movie" placeholder="Sök efter filmtitel här..." />
         <button id="search-btn">Sök</button>
       </section>
       <div id="results"></div>
@@ -31,7 +33,6 @@
       <div id="animering"></div>
     </main>
     <footer>
-      <h2>FilmFindr</h2>
       <h3>saol1901@student.miun.se</h3>
     </footer>
   </body>

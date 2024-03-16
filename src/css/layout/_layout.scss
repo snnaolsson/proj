@@ -11,16 +11,53 @@ body {
   background-color: variables.$primary-bg;
   line-height: variables.$standard-line-height;
   color: variables.$font-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+@mixin logo-styling {
+  position: relative;
+  margin: auto;
+}
+@mixin logoDiff($size) {
+  @if ($size == small-screen) {
+    @include logo-styling;
+    animation: logoDrop 0.5s linear;
+    width: 70%;
+  } @else if($size==big-screen) {
+    @include logo-styling;
+    width: 30%;
+    animation: logoDrop 1s linear;
+  }
 }
 header {
+  height: 100vh;
   background-color: variables.$second-accent-color;
   padding: variables.$foot-head-padd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: color-change-3x 8s linear infinite alternate both;
+
+  img {
+    @include logoDiff(big-screen);
+  }
+}
+#scroll-down {
+  padding: 15px 20px;
+  text-align: center;
+  background-color: black;
+  color: variables.$font-color-darkm;
+  border-radius: 50%;
+  margin: auto;
+  animation: bounce-top 3s infinite ease-out;
 }
 
 footer {
   background-color: variables.$second-accent-color;
   text-align: center;
   padding: variables.$foot-head-padd;
+  margin-top: 25%;
 
   h2 {
     font-size: 1.5rem;
@@ -35,6 +72,166 @@ h1 {
   margin: variables.$heading-padding;
 }
 main {
-  width: 60%;
+  width: 80%;
   margin: auto;
+  padding: 25px;
+  flex: 1;
+}
+#search-sec {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 2%;
+
+  h2 {
+    margin-top: 1%;
+  }
+  p {
+    display: none;
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.bigMovieInfo {
+  font-size: 2rem;
+}
+//Där sökresultat visas
+#results {
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+}
+.movieDiv {
+  cursor: pointer;
+  background-color: lighten(variables.$primary-bg, 2%);
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1%;
+  padding: 2%;
+  img {
+    height: 200px;
+    padding: 1%;
+    transition: height 1s;
+  }
+  //blir större vid hoover
+  img:hover {
+    height: 250px;
+  }
+}
+.movieName {
+  font-size: 1.2rem;
+}
+.smallMovieInfo {
+  font-size: 1rem;
+}
+.mediumMovieInfo {
+  font-size: 1.5rem;
+}
+//Sökknappen
+#search-btn {
+  cursor: pointer;
+  width: 50%;
+  margin: auto;
+  background-color: variables.$second-accent-color;
+  padding: 1%;
+  margin-top: 1%;
+  transition: background-color, 0.5s;
+}
+#search-btn:hover {
+  background-color: variables.$primary-accent-color;
+}
+//inputfält
+#search-movie {
+  margin: auto;
+  padding: 1%;
+  width: 70%;
+}
+
+// Används för att identifiera platsen där information om streamingtjänster för en film visas.
+#stream {
+  width: 80%;
+  margin-left: 3%;
+}
+//Används för att identifiera platsen där affischerna för filmer visas.
+#moviePoster {
+  width: 200px;
+  &:hover {
+    animation: spinPoster 1.5s infinite linear;
+  }
+}
+// Används för att identifiera en sektion som visar mer detaljerad information om en film.
+#movieSec {
+  width: 100%;
+}
+// Används för att identifiera en sektion som visar vilka streamingtjänster som har en specifik film tillgänglig för strömning.
+#streamDiv {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 3%;
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    padding: 10%;
+  }
+  #search-sec {
+    margin-top: 15%;
+    width: 90%;
+    h2 {
+      font-size: 3rem;
+      padding-bottom: 10%;
+      padding-top: 10%;
+    }
+
+    #search-movie {
+      width: 100%;
+      height: 50px;
+      padding: 0%;
+      margin-bottom: 5%;
+    }
+    button {
+      width: 100%;
+      font-size: 1.5rem;
+      height: 55px;
+    }
+  }
+
+  #results {
+    width: 100%;
+
+    .movieDiv {
+      width: 90%;
+      img {
+        height: 250px;
+      }
+    }
+  }
+  #moviePoster {
+    width: 50%;
+  }
+
+  #stream {
+    width: 100%;
+    text-align: center;
+  }
+  #logo {
+    @include logoDiff(small-screen);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: variables.$primary-bg-darkm;
+    color: variables.$font-color-darkm;
+  }
+  .movieDiv {
+    background-color: lighten(variables.$primary-bg-darkm, 5%);
+  }
+  header {
+    background-color: variables.$second-accent-color-darkm;
+  }
+  footer {
+    background-color: variables.$second-accent-color-darkm;
+  }
 }
