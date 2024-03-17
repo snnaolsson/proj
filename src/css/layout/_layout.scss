@@ -172,6 +172,17 @@ main {
   margin-bottom: 3%;
 }
 
+#glide-similar {
+  background-color: none;
+  padding: 5%;
+  img {
+    max-height: 300px;
+  }
+  #glideUl {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 767px) {
   footer {
     padding: 10%;
