@@ -1,13 +1,13 @@
 //colors for light theme
 $primary-bg: #e3e3e3;
-$second-accent-color: #4d967c;
-$primary-accent-color: #59cca2;
+$second-accent-color: #ff9a64;
+$primary-accent-color: #f16d00;
 $font-color: #000;
 
 //dark theme
-$primary-bg-darkm: darken($primary-bg, 25%);
-$second-accent-color-darkm: #235c47;
-$primary-accent-color-darkm: #59cca2;
+$primary-bg-darkm: darken($primary-bg, 75%);
+$second-accent-color-darkm: darken($second-accent-color, 5%);
+$primary-accent-color-darkm: lighten($primary-accent-color, 10%);
 $font-color-darkm: #fff;
 
 //fonts & text
